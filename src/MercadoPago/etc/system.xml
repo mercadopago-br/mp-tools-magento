@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL).
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   Payment Gateway
+ * @package    MercadoPago
+ * @copyright  Copyright (c) 2010 MercadoPago [https://www.mercadopago.com/mp-brasil/]  - Fulvio Cunha [fulvio.cunha@mercadolivre.com]
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+	<sections>
+		<!-- payment tab -->
+	      	<payment translate="label" module="payment">
+			<groups>
+			<!-- mercadopago fieldset -->
+		      		<mercadopago_standard translate="label">
+					<!-- will have title 'New Module' -->
+					<label>MercadoPago</label>
+		
+					<!-- position between other payment methods -->
+					<sort_order>670</sort_order>
+					<!-- do not show this configuration options in store scope -->
+					<show_in_default>1</show_in_default>
+				  	<show_in_website>1</show_in_website>
+				  	<show_in_store>0</show_in_store>
+				  	
+					<fields>
+						<!-- is this payment method active for the website? -->
+				      		<active translate="label">
+							<!-- label for the field -->
+							<label>Enabled</label>
+				
+							<!-- input type for configuration value -->
+							<frontend_type>select</frontend_type>
+				
+							<!-- model to take the option values from -->
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<!-- field position -->
+							<sort_order>1</sort_order>
+							<!-- do not show this field in store scope -->
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+					  		<show_in_store>0</show_in_store>
+					      	</active>
+					      	<title translate="label">
+					  		<label>Título</label>
+					  		<frontend_type>text</frontend_type>
+					  		<sort_order>2</sort_order>
+					  		<show_in_default>1</show_in_default>
+					  		<show_in_website>1</show_in_website>
+					  		<show_in_store>0</show_in_store>
+				      	      	</title>
+					      	<order_status translate="label">
+							<label>Status dos novos pedidos</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_order_status_processing</source_model>
+					  		<sort_order>3</sort_order>
+					  		<show_in_default>1</show_in_default>
+					  		<show_in_website>1</show_in_website>
+					  		<show_in_store>0</show_in_store>
+				      	      	</order_status>
+                                                <acc_resseler_id translate="label">
+							<label>Número do Integrador</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</acc_resseler_id>
+						<acc_id translate="label">
+							<label>Número da Conta</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</acc_id>
+						<enc translate="label">
+							<label>Código Validador</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</enc>
+						<sort_order translate="label">
+						    <label>Sort order</label>
+						    <frontend_type>text</frontend_type>
+						    <sort_order>100</sort_order>
+						    <show_in_default>1</show_in_default>
+						    <show_in_website>1</show_in_website>
+						    <show_in_store>1</show_in_store>
+						</sort_order>
+						<!--<retorno translate="label">
+						  <label>Página de Retorno</label>
+						  <frontend_type>select</frontend_type>
+						  <source_model>MercadoPago_Model_Source_PaginaRetorno</source_model>
+						  <sort_order>6</sort_order>
+						  <show_in_default>1</show_in_default>
+						  <show_in_website>1</show_in_website>
+						  <show_in_store>1</show_in_store>
+						</retorno>-->
+                                                <url_process translate="label">
+                                                    <label>Return Process</label>
+                                                    <frontend_type>text</frontend_type>
+                                                    <sort_order>7</sort_order>
+                                                    <show_in_default>1</show_in_default>
+                                                    <show_in_website>1</show_in_website>
+                                                    <show_in_store>0</show_in_store>
+                                                </url_process>
+                                                <url_succesfull translate="label">
+                                                    <label>Return Success</label>
+                                                    <frontend_type>text</frontend_type>
+                                                    <sort_order>8</sort_order>
+                                                    <show_in_default>1</show_in_default>
+                                                    <show_in_website>1</show_in_website>
+                                                    <show_in_store>0</show_in_store>
+                                                </url_succesfull>
+			  	      </fields>
+		      	      </mercadopago_standard>
+		      </groups>
+		</payment>
+       <!-- <carriers>
+            <groups>
+                <mercadopago translate="label" module="shipping">
+                    <label>MercadoPago</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>11</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <origem translate="label">
+                            <label>CEP de origem</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </origem>
+                        <aceita translate="label">
+                            <label>Aceita</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>MercadoPago_Model_Source_Aceita</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </aceita>
+                        <fixo translate="label">
+                            <label>Valor Fixo</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Este valor será utilizado caso o CEP do seu cliente não seja encontrado no calculador de Frete. Este valor será multiplicado pelo peso total do carrinho (em gramas).</comment>
+                        </fixo>
+                    </fields>
+                </mercadopago>
+            </groups>
+        </carriers>-->
+	</sections>
+</config>

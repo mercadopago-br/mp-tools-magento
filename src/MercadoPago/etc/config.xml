@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL).
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   Payment Gateway
+ * @package    MercadoPago
+ * @copyright  Copyright (c) 2010 MercadoPago [https://www.mercadopago.com/mp-brasil/]  - Fulvio Cunha [fulvio.cunha@mercadolivre.com]
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <mercadopago>
+            <version>0.0.3</version>
+        </mercadopago>
+    </modules>
+    <global>
+        <models>
+            <mercadopago>
+                <class>MercadoPago_Model</class>
+                <resourceModel>mercadopago_mysql4</resourceModel>
+            </mercadopago>
+            <mercadopago_mysql4>
+                <class>MercadoPago_Model_Mysql4</class>
+                <entities>
+                    <api_debug><table>mercadopago_api_debug</table></api_debug>
+                </entities>
+            </mercadopago_mysql4>
+			<mercadopago_mysql4>
+                <class>MercadoPago_Model_Mysql4</class>
+                <entities>
+                    <mercadopago_return><table>mercadopago</table></mercadopago_return>
+                </entities>
+            </mercadopago_mysql4>
+        </models>
+        <resources>
+            <mercadopago_setup>
+                <setup>
+                    <module>MercadoPago</module>
+                    <class>MercadoPago_Model_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </mercadopago_setup>
+            <mercadopago_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </mercadopago_write>
+            <mercadopago_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </mercadopago_read>
+        </resources>
+        <blocks>
+            <mercadopago><class>MercadoPago_Block</class></mercadopago>
+        </blocks>
+    </global>
+    <frontend>      
+        <routers>
+            <mercadopago>
+                <use>standard</use>
+                <args>
+                    <module>MercadoPago</module>
+                    <frontName>MercadoPago</frontName>
+                </args>
+            </mercadopago>
+        </routers>
+        <translate>
+            <modules>
+                <mercadopago>
+                    <files>
+                        <default>mercadopago.csv</default>
+                    </files>
+                </mercadopago>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <mercadopago>
+                    <file>mercadopago.xml</file>
+                </mercadopago>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <translate>
+            <modules>
+                <mercadopago>
+                    <files>
+                        <default>mercadopago.csv</default>
+                    </files>
+                </mercadopago>
+            </modules>
+        </translate>        
+    </adminhtml>
+
+    <default>
+         <payment>
+             <mercadopago_standard>
+                  <model>MercadoPago_Model_Standard</model>
+                  <title>MercadoPago Standard</title>
+                  <allowspecific>0</allowspecific>
+            </mercadopago_standard>
+        </payment>
+        <!--<carriers>
+           <mercadopago>
+              <active>1</active>
+              <sallowspecific>0</sallowspecific>
+              <model>MercadoPago_Model_Carrier_ShippingMethod</model>
+              <name>MercadoPago</name>
+              <title>MercadoPago</title>
+              <handling_type>F</handling_type>
+           </mercadopago>
+        </carriers>-->
+    </default>
+</config>
