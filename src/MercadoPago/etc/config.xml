@@ -63,6 +63,14 @@
         <blocks>
             <mercadopago><class>MercadoPago_Block</class></mercadopago>
         </blocks>
+		
+		 <helpers>
+           <mercadopago>
+                <class>MercadoPago_Helper</class>
+             </mercadopago>
+        </helpers>
+
+		
     </global>
     <frontend>      
         <routers>
